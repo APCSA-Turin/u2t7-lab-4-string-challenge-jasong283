@@ -10,8 +10,15 @@ public class StringProblems{
     // endsLy("oddy") → false
     public boolean endsLy(String x){
             //implement code here
-        return false;
-    }
+            if(x.length() > 1) {
+                String y = x.substring(x.length() - 2, x.length());
+                boolean check = y.contains("ly");
+                return check;
+            } else {
+                return false;
+            }
+        }
+
 
 
     // Given two strings, append them together (known as "concatenation") 
@@ -22,7 +29,6 @@ public class StringProblems{
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
         //implement code here
-        return "";
     }
 
     // Given a string, return a version without the first 2 chars. 
@@ -35,7 +41,19 @@ public class StringProblems{
     // deFront("abeep") -> "abeep"
     public String deFront(String s1){
         //implement code here
-        return "";
+        String x = s1.substring(0, 1);
+        String y = s1.substring(1, 2);
+        String z = s1.substring(2);
+
+        if(x.contains("a") && y.contains("b")) {
+            return s1;
+        } else if(x.contains("a") && !y.contains("b")) {
+            return x + z;
+        } else if(!x.contains("a") && y.contains("b")) {
+            return y + z;
+        } else {
+            return z;
+        }
     }
 
     
@@ -46,7 +64,18 @@ public class StringProblems{
     // withoutX("xHi") → "Hi"
     // withoutX("Hxix") → "Hxi"
     public String withoutX(String s1){
-        return "";
+        String x = s1.substring(0, 1);
+        String y = s1.substring(s1.length() - 1);
+
+        if(x.contains("x") && y.contains("x")) {
+            return s1.substring(1, s1.length() - 1);
+        } else if(!x.contains("x") && y.contains("x")) {
+            return s1.substring(0, s1.length() - 1);
+        } else if (x.contains("x") && !y.contains("x")) {
+            return s1.substring(1);
+        } else {
+            return s1;
+        }
     }
 
     // Given a string str, if the string starts with "f" return "Fizz".
@@ -57,7 +86,18 @@ public class StringProblems{
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
     public String fizzString(String s1){
-        return "";
+        String x = s1.substring(0, 1);
+        String y = s1.substring(s1.length() - 1);
+
+        if(x.contains("f") && y.contains("b")) {
+            return "FizzBuzz";
+        } else if (x.contains("f")) {
+            return "Fizz";
+        } else if (y.contains("b")) {
+            return "Buzz";
+        } else {
+            return s1;
+        }
     }
 
     // Given an int n, return the string form of the number followed 
@@ -69,7 +109,7 @@ public class StringProblems{
     // fizzString2(1) → "1!"
     // fizzString2(2) → "2!"
     // fizzString2(3) → "Fizz!"
-    public String fizzString2(int x){
-        return "";
+    public String fizzString2(int x) {
     }
+    
 }
